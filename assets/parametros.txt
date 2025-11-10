@@ -1,0 +1,13 @@
+Files:assets/ford01.dat assets/ford02.dat assets/ford03.dat assets/ford04.dat
+Seeds:26499355 55399462 31026233 33262013 99999999
+Algorithms:generational stationary
+PopulationSize:100
+%RandomInit:0.8
+Elite:2 3
+KBest:2 3
+KWorst:3
+GreedyListSize:5
+%Cross:0.7
+%Mutation: 0.1
+NumIterations:50000
+Seconds:60
