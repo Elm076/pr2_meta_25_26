@@ -89,19 +89,19 @@ public class Main {
                             result = genAlgorithm.run();
 
                         } else if (test.algorithm().equals("Est")) {
-                            // Para el estacionario, la probabilidad de cruce es del 100%
+                            // For the stationary, the crossover probability is always 100%
                             float stationaryCrossProb = 1.0f;
 
                             Stationary statAlgorithm = new Stationary(
                                     dataFile, actualSeed, configuration.getPopSize(),
                                     configuration.getRandomInitPercent(), configuration.getGreedyListSize(),
-                                    test.E(), test.kBest(), test.kWorst(), // E no se usa pero el constructor lo requiere
+                                    test.E(), test.kBest(), test.kWorst(),
                                     stationaryCrossProb, configuration.getMutationPercent(),
                                     configuration.getNumIterations(), configuration.getSecondsExec(), useOX2
                             );
                             result = statAlgorithm.run();
                         }
-                        // Caculing the ending time
+                        // Calculating the ending time
                         Instant endTime = Instant.now();
                         Duration executionTime = Duration.between(startTime, endTime);
                         double secondsElapsed = executionTime.toMillis() / 1000.0;

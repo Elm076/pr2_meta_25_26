@@ -5,162 +5,162 @@ PROCESSING FILE: assets/ford01.dat
 ----- SEED: 26499355 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3624.0 (TIME: 4,949s)
+RESULT: 3654.0 (TIME: 0,243s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3592.0 (TIME: 4,189s)
+RESULT: 3612.0 (TIME: 0,087s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3594.0 (TIME: 4,116s)
+RESULT: 3622.0 (TIME: 0,086s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3598.0 (TIME: 4,176s)
+RESULT: 3618.0 (TIME: 0,082s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3612.0 (TIME: 2,988s)
+RESULT: 3640.0 (TIME: 0,083s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3618.0 (TIME: 2,931s)
+RESULT: 3634.0 (TIME: 0,054s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3600.0 (TIME: 2,882s)
+RESULT: 3636.0 (TIME: 0,054s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3674.0 (TIME: 2,941s)
+RESULT: 3610.0 (TIME: 0,055s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3704.0 (TIME: 0,162s)
+RESULT: 3704.0 (TIME: 0,110s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3602.0 (TIME: 0,157s)
+RESULT: 3602.0 (TIME: 0,068s)
 
 ----- SEED: 55399462 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3602.0 (TIME: 4,063s)
+RESULT: 3628.0 (TIME: 0,082s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3592.0 (TIME: 4,150s)
+RESULT: 3626.0 (TIME: 0,076s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3592.0 (TIME: 4,138s)
+RESULT: 3600.0 (TIME: 0,074s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3616.0 (TIME: 4,169s)
+RESULT: 3626.0 (TIME: 0,068s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3628.0 (TIME: 2,856s)
+RESULT: 3620.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3584.0 (TIME: 2,907s)
+RESULT: 3658.0 (TIME: 0,040s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3608.0 (TIME: 2,883s)
+RESULT: 3608.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3638.0 (TIME: 2,953s)
+RESULT: 3628.0 (TIME: 0,042s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3690.0 (TIME: 0,130s)
+RESULT: 3706.0 (TIME: 0,061s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3634.0 (TIME: 0,099s)
+RESULT: 3634.0 (TIME: 0,052s)
 
 ----- SEED: 31026233 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3618.0 (TIME: 4,094s)
+RESULT: 3646.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3594.0 (TIME: 4,164s)
+RESULT: 3610.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3594.0 (TIME: 4,124s)
+RESULT: 3618.0 (TIME: 0,057s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3576.0 (TIME: 4,206s)
+RESULT: 3626.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3606.0 (TIME: 2,885s)
+RESULT: 3634.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3640.0 (TIME: 2,930s)
+RESULT: 3606.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3614.0 (TIME: 2,989s)
+RESULT: 3644.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3622.0 (TIME: 3,035s)
+RESULT: 3642.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3688.0 (TIME: 0,133s)
+RESULT: 3688.0 (TIME: 0,064s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3652.0 (TIME: 0,097s)
+RESULT: 3654.0 (TIME: 0,043s)
 
 ----- SEED: 33262013 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3612.0 (TIME: 4,554s)
+RESULT: 3632.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3576.0 (TIME: 4,556s)
+RESULT: 3620.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3608.0 (TIME: 4,354s)
+RESULT: 3624.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3612.0 (TIME: 4,471s)
+RESULT: 3600.0 (TIME: 0,060s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3622.0 (TIME: 3,019s)
+RESULT: 3658.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3622.0 (TIME: 3,075s)
+RESULT: 3626.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3644.0 (TIME: 3,025s)
+RESULT: 3624.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3632.0 (TIME: 3,090s)
+RESULT: 3630.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3682.0 (TIME: 0,136s)
+RESULT: 3682.0 (TIME: 0,063s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3628.0 (TIME: 0,093s)
+RESULT: 3656.0 (TIME: 0,035s)
 
 ----- SEED: 99999999 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3612.0 (TIME: 4,321s)
+RESULT: 3626.0 (TIME: 0,057s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3612.0 (TIME: 4,356s)
+RESULT: 3622.0 (TIME: 0,060s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3580.0 (TIME: 4,355s)
+RESULT: 3640.0 (TIME: 0,057s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3596.0 (TIME: 4,409s)
+RESULT: 3606.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 3628.0 (TIME: 2,992s)
+RESULT: 3652.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 3636.0 (TIME: 3,103s)
+RESULT: 3640.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 3634.0 (TIME: 3,072s)
+RESULT: 3624.0 (TIME: 0,037s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 3636.0 (TIME: 3,141s)
+RESULT: 3656.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3686.0 (TIME: 0,129s)
+RESULT: 3686.0 (TIME: 0,071s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 3630.0 (TIME: 0,099s)
+RESULT: 3654.0 (TIME: 0,052s)
 ==========================================================
 PROCESSING FILE: assets/ford02.dat
 ==========================================================
@@ -168,118 +168,487 @@ PROCESSING FILE: assets/ford02.dat
 ----- SEED: 26499355 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,365s)
+RESULT: 30286.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,436s)
+RESULT: 26876.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,353s)
+RESULT: 26876.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,407s)
+RESULT: 26876.0 (TIME: 0,062s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 3,013s)
+RESULT: 26876.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 3,111s)
+RESULT: 26876.0 (TIME: 0,040s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 3,034s)
+RESULT: 26876.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 3,078s)
+RESULT: 26876.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 31866.0 (TIME: 0,135s)
+RESULT: 31866.0 (TIME: 0,069s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 30518.0 (TIME: 0,093s)
+RESULT: 30518.0 (TIME: 0,037s)
 
 ----- SEED: 55399462 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,348s)
+RESULT: 30570.0 (TIME: 0,057s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,349s)
+RESULT: 30778.0 (TIME: 0,060s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,523s)
+RESULT: 31034.0 (TIME: 0,056s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,663s)
+RESULT: 29854.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 2,996s)
+RESULT: 26876.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 3,295s)
+RESULT: 26876.0 (TIME: 0,040s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 3,272s)
+RESULT: 31318.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 3,169s)
+RESULT: 26876.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 31944.0 (TIME: 0,142s)
+RESULT: 31944.0 (TIME: 0,062s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 31598.0 (TIME: 0,099s)
+RESULT: 31598.0 (TIME: 0,049s)
 
 ----- SEED: 31026233 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,396s)
+RESULT: 30154.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,468s)
+RESULT: 26876.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 30274.0 (TIME: 4,462s)
+RESULT: 26876.0 (TIME: 0,057s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,465s)
+RESULT: 26876.0 (TIME: 0,059s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 3,099s)
+RESULT: 26876.0 (TIME: 0,038s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 3,368s)
+RESULT: 26876.0 (TIME: 0,042s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 3,058s)
+RESULT: 26876.0 (TIME: 0,037s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 3,068s)
+RESULT: 26876.0 (TIME: 0,040s)
 
 ---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 32318.0 (TIME: 0,131s)
+RESULT: 32318.0 (TIME: 0,069s)
 
 ---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
-RESULT: 26876.0 (TIME: 0,095s)
+RESULT: 26876.0 (TIME: 0,049s)
 
 ----- SEED: 33262013 -----
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,527s)
+RESULT: 30838.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,502s)
+RESULT: 26876.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 4,818s)
+RESULT: 26876.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 4,531s)
+RESULT: 26876.0 (TIME: 0,058s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
-RESULT: 26876.0 (TIME: 2,945s)
+RESULT: 26876.0 (TIME: 0,037s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
-RESULT: 26876.0 (TIME: 2,933s)
+RESULT: 26876.0 (TIME: 0,039s)
 
 ---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
-RESULT: 26876.0
+RESULT: 26876.0 (TIME: 0,038s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 26876.0 (TIME: 0,039s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 31978.0 (TIME: 0,060s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 30514.0 (TIME: 0,036s)
+
+----- SEED: 99999999 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 26876.0 (TIME: 0,058s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 26876.0 (TIME: 0,059s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 26876.0 (TIME: 0,058s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 26876.0 (TIME: 0,058s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 26876.0 (TIME: 0,040s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 26876.0 (TIME: 0,039s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 26876.0 (TIME: 0,039s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 26876.0 (TIME: 0,039s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 32484.0 (TIME: 0,054s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 31630.0 (TIME: 0,039s)
+==========================================================
+PROCESSING FILE: assets/ford03.dat
+==========================================================
+
+----- SEED: 26499355 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13422.0 (TIME: 0,099s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13348.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13352.0 (TIME: 0,100s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13392.0 (TIME: 0,102s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13354.0 (TIME: 0,074s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13386.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13358.0 (TIME: 0,076s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13378.0 (TIME: 0,083s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13520.0 (TIME: 0,108s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13404.0 (TIME: 0,101s)
+
+----- SEED: 55399462 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13404.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13380.0 (TIME: 0,104s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13368.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13388.0 (TIME: 0,104s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13370.0 (TIME: 0,073s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13348.0 (TIME: 0,073s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13364.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13356.0 (TIME: 0,077s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13536.0 (TIME: 0,092s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13406.0 (TIME: 0,098s)
+
+----- SEED: 31026233 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13414.0 (TIME: 0,113s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13374.0 (TIME: 0,105s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13414.0 (TIME: 0,108s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13358.0 (TIME: 0,193s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13360.0 (TIME: 0,148s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13376.0 (TIME: 0,079s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13336.0 (TIME: 0,080s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13330.0 (TIME: 0,078s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13550.0 (TIME: 0,122s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13376.0 (TIME: 0,101s)
+
+----- SEED: 33262013 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13386.0 (TIME: 0,100s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13358.0 (TIME: 0,102s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13424.0 (TIME: 0,100s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13344.0 (TIME: 0,100s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13364.0 (TIME: 0,081s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13372.0 (TIME: 0,076s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13336.0 (TIME: 0,077s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13334.0 (TIME: 0,080s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13508.0 (TIME: 0,128s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13396.0 (TIME: 0,100s)
+
+----- SEED: 99999999 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13406.0 (TIME: 0,100s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13392.0 (TIME: 0,102s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13400.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13372.0 (TIME: 0,105s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 13406.0 (TIME: 0,079s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 13370.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 13348.0 (TIME: 0,077s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 13384.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13560.0 (TIME: 0,111s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 13412.0 (TIME: 0,104s)
+==========================================================
+PROCESSING FILE: assets/ford04.dat
+==========================================================
+
+----- SEED: 26499355 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 179610.0 (TIME: 0,103s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 176718.0 (TIME: 0,102s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 179414.0 (TIME: 0,102s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 177138.0 (TIME: 0,103s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 176212.0 (TIME: 0,077s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 177666.0 (TIME: 0,074s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 176236.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 176752.0 (TIME: 0,077s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 184970.0 (TIME: 0,119s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 178818.0 (TIME: 0,102s)
+
+----- SEED: 55399462 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 177728.0 (TIME: 0,104s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 175724.0 (TIME: 0,106s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 177312.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 175552.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 176068.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 174948.0 (TIME: 0,078s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 173998.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 173324.0 (TIME: 0,076s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 184474.0 (TIME: 0,093s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 177308.0 (TIME: 0,096s)
+
+----- SEED: 31026233 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 178626.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 176128.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 175704.0 (TIME: 0,102s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 175266.0 (TIME: 0,104s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 173590.0 (TIME: 0,076s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 177224.0 (TIME: 0,076s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 175748.0 (TIME: 0,074s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 178028.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 183986.0 (TIME: 0,124s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 177024.0 (TIME: 0,100s)
+
+----- SEED: 33262013 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 181096.0 (TIME: 0,103s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 177460.0 (TIME: 0,101s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 163472.0 (TIME: 0,100s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 177716.0 (TIME: 0,104s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 178758.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 177036.0 (TIME: 0,075s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 175406.0 (TIME: 0,077s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 177186.0 (TIME: 0,078s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 184030.0 (TIME: 0,124s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 177352.0 (TIME: 0,104s)
+
+----- SEED: 99999999 -----
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 179306.0 (TIME: 0,107s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 175670.0 (TIME: 0,104s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 177932.0 (TIME: 0,105s)
+
+---> EXECUTING: Alg: Gen, Cruce: OX2, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 176696.0 (TIME: 0,110s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 3
+RESULT: 175954.0 (TIME: 0,088s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 1, kBest: 3, kWorst: 3
+RESULT: 175840.0 (TIME: 0,080s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 2, kWorst: 3
+RESULT: 176034.0 (TIME: 0,076s)
+
+---> EXECUTING: Alg: Gen, Cruce: MOC, M: 100, E: 2, kBest: 3, kWorst: 3
+RESULT: 173806.0 (TIME: 0,078s)
+
+---> EXECUTING: Alg: Est, Cruce: OX2, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 183980.0 (TIME: 0,105s)
+
+---> EXECUTING: Alg: Est, Cruce: MOC, M: 100, E: 1, kBest: 2, kWorst: 2
+RESULT: 178470.0 (TIME: 0,064s)
+
+END OF EXECUTIONS.

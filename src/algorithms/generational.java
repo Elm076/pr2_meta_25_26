@@ -30,6 +30,7 @@ public class generational {
     private ArrayList<PairGeneric<ArrayList<Integer>, Double>> prevPopulation;
     private ArrayList<PairGeneric<ArrayList<Integer>, Double>> actualPopulation;
     private Boolean useOX2;
+    private Integer numOfEvaluations;
 
     public generational(Data data_, Long seed_,Integer popSize_, Float percentRandomInit_, Integer greedSize_, Integer elite_,
                         Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_
@@ -48,8 +49,8 @@ public class generational {
         maxSeconds = maxSeconds_;
         useOX2 = OX2_;
         random = new Random(seed);
+        numOfEvaluations = 0;
 
-        // ¡¡IMPORTANTE!! Debes modificar tu clase Greedy para que acepte 'Data'
         greedy = new Greedy(seed, greedyListSize, data);
 
         prevPopulation = new ArrayList<>();
@@ -249,7 +250,7 @@ public class generational {
 
         // We generate the matingPool
         for (int i = 0; i < populationSize; i++){
-            //remember im referring the candidates by his index in the ArrayList Population and not by the whole Path
+            //remember im referring the candidates by his index in the ArrayList Population and not copying the individuals into a new object
             ArrayList<PairGeneric<Integer, Double>> candidates = new ArrayList<>();
 
             for (int j = 0; j < kBest; j++){
@@ -263,16 +264,15 @@ public class generational {
             matingPool.add(prevPopulation.get(winner));
         }
 
-        //Shuffle the mating pool to give more randomness to children
-        Collections.shuffle(matingPool, random);
-
         //We generate the children (actualPopulation)
         for (int i = 0; i < populationSize/2; i++){
+            Boolean crossed = false;
             if (random.nextFloat() <= 0.7) {
                 if (useOX2) {
                     childs = ox2Crossover(matingPool.get(i).getFirst(), matingPool.get(i+1).getFirst(), random);
                 } else
                     childs = mocCrossover(matingPool.get(i).getFirst(), matingPool.get(i+1).getFirst(), random);
+                crossed = true;
             }
             else{
                 childs.setFirst(matingPool.get(i).getFirst());
@@ -280,23 +280,38 @@ public class generational {
             }
 
             ArrayList<Integer> mutation = new ArrayList<>();
+            Boolean mutationChild1 = false;
+            Boolean mutationChild2 = false;
             //Apply mutation 2opt if probabilities success
             if (random.nextFloat() <= 0.1) {
-                // CAMBIO: Usar data.n como límite para el índice de mutación
                 mutation = Utilitys.TwoOpt(childs.getFirst(), random.nextInt(0, data.n), random.nextInt(0, data.n));
                 actualPopulation.add(new PairGeneric<>(mutation, 0.0));
+                mutationChild1 = true;
             }
             else{
                 actualPopulation.add(new PairGeneric<>(childs.getFirst(), 0.0));
             }
 
             if (random.nextFloat() <= 0.1) {
-                // CAMBIO: Usar data.n como límite para el índice de mutación
                 mutation = Utilitys.TwoOpt(childs.getSecond(), random.nextInt(0, data.n), random.nextInt(0, data.n));
                 actualPopulation.add(new PairGeneric<>(mutation, 0.0));
+                mutationChild2 = true;
             }
             else{
                 actualPopulation.add(new PairGeneric<>(childs.getSecond(), 0.0));
+            }
+
+            /*We update the number of evaluations made
+            If we crossed, we will have to evaluate both children
+            If we didnt cross, we will have to evaluate only the mutated children (if mutation occurred)
+             */
+            if (crossed)
+                numOfEvaluations += 2;
+            else{
+                if (mutationChild1)
+                    numOfEvaluations++;
+                if (mutationChild2)
+                    numOfEvaluations++;
             }
         }
 
@@ -330,17 +345,16 @@ public class generational {
         Instant initTime = Instant.now();
         Instant checkTime = Instant.now();
         Duration time = Duration.between(initTime,checkTime);
-        int ite = 0;
 
         generatePopultaion();
         evaluatePopulation();
-        while (ite < maxIterations - 2 && time.toSeconds() < maxSeconds){
+        numOfEvaluations += populationSize;
+        while (numOfEvaluations < maxIterations - 2 && time.toSeconds() < maxSeconds){
             //System.out.println("Iteration = " +ite);
             parentsSelectionAndMutation();
 
             checkTime = Instant.now();
             time = Duration.between(initTime,checkTime);
-            ite++;
         }
         evaluatePopulation();
 

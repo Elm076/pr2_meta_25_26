@@ -28,6 +28,7 @@ public class Stationary {
     private Random random;
     private ArrayList<PairGeneric<ArrayList<Integer>, Double>> prevPopulation;
     private Boolean useOX2;
+    private Integer numOfEvaluations;
 
     public Stationary(Data data_, Long seed_,Integer popSize_, Float percentRandomInit_, Integer greedSize_, Integer elite_,
                       Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_
@@ -46,8 +47,8 @@ public class Stationary {
         maxSeconds = maxSeconds_;
         useOX2 = OX2_;
         random = new Random(seed);
+        numOfEvaluations = 0;
 
-        // ¡¡IMPORTANTE!! Debes modificar tu clase Greedy para que acepte 'Data'
         greedy = new Greedy(seed, greedyListSize, data);
 
         prevPopulation = new ArrayList<>();
@@ -257,7 +258,7 @@ public class Stationary {
     void parentsSelectionAndMutation(){
         PairGeneric<ArrayList<Integer>,ArrayList<Integer>> childs = new PairGeneric<>();
 
-        //remember im referring the candidates by his index in the ArrayList Population and not by the whole Path
+        //remember im referring the candidates by his index in the ArrayList Population and not copying the individuals into a new object
         ArrayList<PairGeneric<Integer, Double>> candidates = new ArrayList<>();
         ArrayList<ArrayList<Integer>> winners = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
@@ -289,7 +290,6 @@ public class Stationary {
             worstParents.add(worst);
         }
 
-
         //We generate the children
         if (useOX2) {
             childs = ox2Crossover(winners.getFirst(), winners.getLast(), random);
@@ -299,7 +299,6 @@ public class Stationary {
         ArrayList<Integer> mutation = new ArrayList<>();
         //Apply mutation 2opt if probabilities success
         if (random.nextFloat() <= 0.1) {
-            // CAMBIO: Usar data.n como límite
             mutation = Utilitys.TwoOpt(childs.getFirst(), random.nextInt(0, data.n), random.nextInt(0, data.n));
             prevPopulation.set(worstParents.getFirst(), new PairGeneric<>(mutation, Double.POSITIVE_INFINITY));
         } else {
@@ -307,13 +306,15 @@ public class Stationary {
         }
 
         if (random.nextFloat() <= 0.1) {
-            // CAMBIO: Usar data.n como límite
             mutation = Utilitys.TwoOpt(childs.getSecond(), random.nextInt(0, data.n), random.nextInt(0, data.n));
             prevPopulation.set(worstParents.getLast(), new PairGeneric<>(mutation, Double.POSITIVE_INFINITY));
         } else {
             prevPopulation.set(worstParents.getLast(), new PairGeneric<>(childs.getSecond(), Double.POSITIVE_INFINITY));
         }
 
+        /*In this stationary algorithm, we will always do 2 evaluations, because the 2 new childs will always
+        replace the worst 2 individuals in the population (100% prob cross) */
+        numOfEvaluations += 2;
         evaluatePopulation(worstParents);
 
     }
@@ -323,17 +324,17 @@ public class Stationary {
         Instant initTime = Instant.now();
         Instant checkTime = Instant.now();
         Duration time = Duration.between(initTime,checkTime);
-        int ite = 0;
 
         generatePopultaion();
         evaluateInitPopulation();
-        while (ite < maxIterations - 1 && time.toSeconds() < 60){ // Límite de 60s hardcodeado
+        numOfEvaluations += populationSize;
+
+        while (numOfEvaluations < maxIterations - 100 && time.toSeconds() < maxSeconds){
             //System.out.println("Iteration = " +ite);
             parentsSelectionAndMutation();
 
             checkTime = Instant.now();
             time = Duration.between(initTime,checkTime);
-            ite++;
         }
 
         System.out.println("Value of solution = " + elites.getFirst().getSecond());
