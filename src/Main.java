@@ -84,7 +84,7 @@ public class Main {
                                     configuration.getRandomInitPercent(), configuration.getGreedyListSize(),
                                     test.E(), test.kBest(), test.kWorst(),
                                     configuration.getCrossPercent(), configuration.getMutationPercent(),
-                                    configuration.getNumIterations(), configuration.getSecondsExec(), useOX2
+                                    configuration.getNumIterations(), configuration.getSecondsExec(), useOX2, configuration.getExtraParam()
                             );
                             result = genAlgorithm.run();
 
@@ -97,7 +97,7 @@ public class Main {
                                     configuration.getRandomInitPercent(), configuration.getGreedyListSize(),
                                     test.E(), test.kBest(), test.kWorst(),
                                     stationaryCrossProb, configuration.getMutationPercent(),
-                                    configuration.getNumIterations(), configuration.getSecondsExec(), useOX2
+                                    configuration.getNumIterations(), configuration.getSecondsExec(), useOX2, configuration.getExtraParam()
                             );
                             result = statAlgorithm.run();
                         }

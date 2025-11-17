@@ -19,6 +19,7 @@ public class Params {
     private Float mutationPercent;
     private Integer numIterations;
     private Integer secondsExec;
+    private Integer extraParam;
 
     public Params(String pathConfigFile){
         this.files = new ArrayList<>();
@@ -88,6 +89,9 @@ public class Params {
                     case "Seconds" :
                         this.secondsExec = Integer.parseInt(split[1]);
                         break;
+                    case "ExtraParam" :
+                        this.extraParam = Integer.parseInt(split[1]);
+                        break;
                 }
             }
         }
@@ -147,6 +151,8 @@ public class Params {
     public Integer getNumIterations() {
         return numIterations;
     }
+
+    public Integer getExtraParam() { return  extraParam; }
 
 
 

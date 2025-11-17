@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Stationary {
-    Greedy greedy;
+    GreedyRandom greedy;
     private Data data;
     private Long seed;
     private Integer populationSize;
@@ -29,10 +29,11 @@ public class Stationary {
     private ArrayList<PairGeneric<ArrayList<Integer>, Double>> prevPopulation;
     private Boolean useOX2;
     private Integer numOfEvaluations;
+    private Integer extraParam;
 
     public Stationary(Data data_, Long seed_,Integer popSize_, Float percentRandomInit_, Integer greedSize_, Integer elite_,
-                      Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_
-    ){
+                      Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_,
+                      Integer extraParam){
         data = data_;
         seed = seed_;
         populationSize = popSize_;
@@ -46,10 +47,11 @@ public class Stationary {
         maxIterations = maxIterations_;
         maxSeconds = maxSeconds_;
         useOX2 = OX2_;
+        this.extraParam = extraParam;
         random = new Random(seed);
         numOfEvaluations = 0;
 
-        greedy = new Greedy(seed, greedyListSize, data);
+        greedy = new GreedyRandom(seed, greedyListSize, data, extraParam);
 
         prevPopulation = new ArrayList<>();
         elites = new ArrayList<>();
@@ -78,7 +80,7 @@ public class Stationary {
         }
 
         for (int i = 0; i < (populationSize * (1-percentRandomInit)); i++){
-            ArrayList<Integer> newCitiesGreedy = greedy.getSolution();
+            ArrayList<Integer> newCitiesGreedy = greedy.execute();
             PairGeneric<ArrayList<Integer>, Double> newEntryGreedy = new PairGeneric<>(newCitiesGreedy, Double.POSITIVE_INFINITY);
             prevPopulation.add(newEntryGreedy);
         }
@@ -298,14 +300,14 @@ public class Stationary {
 
         ArrayList<Integer> mutation = new ArrayList<>();
         //Apply mutation 2opt if probabilities success
-        if (random.nextFloat() <= 0.1) {
+        if (random.nextFloat() <= probMutation) {
             mutation = Utilitys.TwoOpt(childs.getFirst(), random.nextInt(0, data.n), random.nextInt(0, data.n));
             prevPopulation.set(worstParents.getFirst(), new PairGeneric<>(mutation, Double.POSITIVE_INFINITY));
         } else {
             prevPopulation.set(worstParents.getFirst(), new PairGeneric<>(childs.getFirst(),Double.POSITIVE_INFINITY));
         }
 
-        if (random.nextFloat() <= 0.1) {
+        if (random.nextFloat() <= probMutation) {
             mutation = Utilitys.TwoOpt(childs.getSecond(), random.nextInt(0, data.n), random.nextInt(0, data.n));
             prevPopulation.set(worstParents.getLast(), new PairGeneric<>(mutation, Double.POSITIVE_INFINITY));
         } else {

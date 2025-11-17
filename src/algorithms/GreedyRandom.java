@@ -6,14 +6,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GreedyRandom {
-    private String filePath;
     private Long seed;
     private Random random;
     private Data datos;
     private Integer extraParam;
 
-    public GreedyRandom(long seed, String filePath, Data datos, Integer extraParam) {
-        this.filePath = filePath;
+    public GreedyRandom(long seed, Integer greedyListSize, Data datos, Integer extraParam) {
         this.seed = seed;
         this.datos = datos;
         this.extraParam = extraParam;
@@ -112,21 +110,6 @@ public class GreedyRandom {
             }
 
         return solucion;
-    }
-
-    public int calculateCost(ArrayList<Integer> solucion, Data data) {
-        int n = data.n;
-        int cost = 0;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                int locI = solucion.get(i);
-                int locJ = solucion.get(j);
-                cost += data.flujos[i][j] * data.distancias[locI][locJ];
-            }
-        }
-
-        return cost;
     }
 
 }

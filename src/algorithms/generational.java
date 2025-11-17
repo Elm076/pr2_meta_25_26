@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class generational {
-    Greedy greedy;
+    GreedyRandom greedy;
     // private Double[][] distancesMatrix; // Ya no se usa
     private Data data; // Usamos el objeto Data
     private Long seed;
@@ -31,10 +31,11 @@ public class generational {
     private ArrayList<PairGeneric<ArrayList<Integer>, Double>> actualPopulation;
     private Boolean useOX2;
     private Integer numOfEvaluations;
+    private Integer extraParam;
 
     public generational(Data data_, Long seed_,Integer popSize_, Float percentRandomInit_, Integer greedSize_, Integer elite_,
-                        Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_
-    ){
+                        Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_,
+                        Integer extraParam){
         data = data_;
         seed = seed_;
         populationSize = popSize_;
@@ -48,10 +49,11 @@ public class generational {
         maxIterations = maxIterations_;
         maxSeconds = maxSeconds_;
         useOX2 = OX2_;
+        this.extraParam = extraParam;
         random = new Random(seed);
         numOfEvaluations = 0;
 
-        greedy = new Greedy(seed, greedyListSize, data);
+        greedy = new GreedyRandom(seed, greedyListSize, data, extraParam);
 
         prevPopulation = new ArrayList<>();
         actualPopulation = new ArrayList<>();
@@ -81,7 +83,7 @@ public class generational {
         }
 
         for (int i = 0; i < (populationSize * (1-percentRandomInit)); i++){
-            ArrayList<Integer> newCitiesGreedy = greedy.getSolution();
+            ArrayList<Integer> newCitiesGreedy = greedy.execute();
             PairGeneric<ArrayList<Integer>, Double> newEntryGreedy = new PairGeneric<>(newCitiesGreedy, Double.POSITIVE_INFINITY);
             prevPopulation.add(newEntryGreedy);
         }
