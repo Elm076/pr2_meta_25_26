@@ -5,6 +5,7 @@ import config.Params;
 import dataStructures.PairGeneric;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +17,6 @@ import java.util.List;
 
 public class Main {
 
-    // --- CAMBIO: Usamos 'static class' en lugar de 'record' para compatibilidad ---
     static class TestConfig {
         private final String algorithm;
         private final String crossover;
@@ -31,7 +31,6 @@ public class Main {
             this.kWorst = kWorst;
         }
 
-        // Estos métodos imitan a un 'record' para no romper el resto del código
         public String algorithm() { return algorithm; }
         public String crossover() { return crossover; }
         public int M() { return M; }
@@ -44,83 +43,111 @@ public class Main {
             return String.format("Alg: %s, Cruce: %s, M: %d, E: %d, kBest: %d, kWorst: %d",
                     algorithm, crossover, M, E, kBest, kWorst);
         }
+
+        public String toFileNamePart() {
+            return String.format("%s_%s_M%d_E%d_kB%d_kW%d",
+                    algorithm, crossover, M, E, kBest, kWorst);
+        }
     }
-    // ---------------------------------------------------------------------------
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.err.println("\n" + "Error: Debes proporcionar la ruta al archivo de configuración.");
+            System.err.println("\nError: Debes proporcionar la ruta al archivo de configuración.");
             return;
         }
 
         String configFilePath = args[0];
+        Params configuration = new Params(configFilePath);
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter("assets/ExecutionsExit.txt"))) {
+        // --- 1. Crear directorio logs ---
+        File logDir = new File("logs");
+        if (!logDir.exists()) {
+            logDir.mkdirs();
+        }
 
-            Params configuration = new Params(configFilePath);
-
-            // --- LECTURA DINÁMICA DEL ARCHIVO TXT ---
-            List<TestConfig> testSuite = new ArrayList<>();
-
-            try (BufferedReader br = new BufferedReader(new FileReader(configFilePath))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    line = line.trim();
-                    // Solo leemos las líneas que empiezan exactamente con "TestConfig:"
-                    if (line.startsWith("TestConfig:")) {
-                        try {
-                            // Cortamos la etiqueta y separamos por comas
-                            String content = line.substring("TestConfig:".length());
-                            String[] parts = content.split(",");
-
-                            // Limpiamos espacios en blanco alrededor de cada dato
-                            if (parts.length >= 6) {
-                                String alg = parts[0].trim();
-                                String cross = parts[1].trim();
-                                int M = Integer.parseInt(parts[2].trim());
-                                int E = Integer.parseInt(parts[3].trim());
-                                int kBest = Integer.parseInt(parts[4].trim());
-                                int kWorst = Integer.parseInt(parts[5].trim());
-
-                                testSuite.add(new TestConfig(alg, cross, M, E, kBest, kWorst));
-                            }
-                        } catch (Exception e) {
-                            System.err.println("Error leyendo línea de test: " + line + " -> " + e.getMessage());
+        // --- 2. Lectura dinámica de la Suite ---
+        List<TestConfig> testSuite = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(configFilePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+                if (line.startsWith("TestConfig:")) {
+                    try {
+                        String[] parts = line.substring("TestConfig:".length()).split(",");
+                        if (parts.length >= 6) {
+                            testSuite.add(new TestConfig(
+                                    parts[0].trim(), parts[1].trim(),
+                                    Integer.parseInt(parts[2].trim()),
+                                    Integer.parseInt(parts[3].trim()),
+                                    Integer.parseInt(parts[4].trim()),
+                                    Integer.parseInt(parts[5].trim())
+                            ));
                         }
+                    } catch (Exception e) {
+                        System.err.println("Error parseando config: " + line);
                     }
                 }
-            } catch (IOException e) {
-                System.err.println("No se pudo leer el archivo de configuración para los tests.");
+            }
+        } catch (IOException e) {
+            System.err.println("Error leyendo el archivo de configuración.");
+        }
+
+        if (testSuite.isEmpty()) {
+            System.out.println("ADVERTENCIA: No se encontraron configuraciones 'TestConfig:'.");
+            // No hacemos return aquí por si quieres ejecutar algo por defecto,
+            // pero idealmente deberías revisar tu txt.
+        }
+
+        // --- 4. Carga de archivos de datos (CORREGIDO) ---
+        ArrayList<Data> files = new ArrayList<>();
+        System.out.println("--- Cargando archivos de datos ---");
+
+        for (String filePath : configuration.getFiles()) {
+            File f = new File(filePath);
+
+            // Verificación previa para depuración
+            if (!f.exists()) {
+                System.err.println("ERROR CRÍTICO: No se encuentra el archivo: " + filePath);
+                System.err.println(" -> Buscando en ruta absoluta: " + f.getAbsolutePath());
+                continue; // Saltamos este archivo si no existe
             }
 
-            // Si no encontró nada en el archivo, avisamos
-            if (testSuite.isEmpty()) {
-                System.out.println("ADVERTENCIA: No se encontraron líneas 'TestConfig:' en " + configFilePath);
-                writer.println("ADVERTENCIA: No se encontraron tests. Revisa parametros.txt");
-            }
-            // ----------------------------------------
-
-            // Carga de archivos de datos
-            ArrayList<Data> files = new ArrayList<>();
-            for (String filePath : configuration.getFiles()) {
+            try {
+                // Aquí es donde saltaba la excepción Unhandled. Ahora está dentro de try-catch.
                 files.add(new Data(filePath));
+                System.out.println("Cargado correctamente: " + filePath);
+            } catch (Exception e) { // Capturamos IOException o FileNotFoundException
+                System.err.println("Excepción al leer datos de " + filePath + ": " + e.getMessage());
+                e.printStackTrace();
             }
+        }
 
-            // Ejecución de algoritmos
-            for (Data dataFile : files) {
-                writer.println("==========================================================");
-                writer.println("PROCESSING FILE: " + dataFile.getFilename());
-                writer.println("==========================================================");
+        if (files.isEmpty()) {
+            System.err.println("No se pudieron cargar archivos de datos. Terminando programa.");
+            return;
+        }
 
-                for (Long actualSeed : configuration.getSeeds()) {
-                    writer.println("\n----- SEED: " + actualSeed + " -----");
+        // --- 5. Ejecución ---
+        for (Data dataFile : files) {
+            String simpleFileName = new File(dataFile.getFilename()).getName();
 
-                    for (TestConfig test : testSuite) {
-                        writer.println("\n---> EXECUTING: " + test.toString());
+            for (Long actualSeed : configuration.getSeeds()) {
+                for (TestConfig test : testSuite) {
+
+                    String logFileName = String.format("logs/Log_%s_Seed%d_%s.txt",
+                            simpleFileName, actualSeed, test.toFileNamePart());
+
+                    try (PrintWriter writer = new PrintWriter(new FileWriter(logFileName))) {
+                        writer.println("============= EXECUTION REPORT =============");
+                        writer.println("File: " + dataFile.getFilename());
+                        writer.println("Seed: " + actualSeed);
+                        writer.println("Configuration: " + test.toString());
+                        writer.println("============================================");
+
+                        System.out.println("Ejecutando log: " + logFileName);
 
                         PairGeneric<ArrayList<Integer>, Double> result = null;
                         boolean useOX2 = test.crossover().equals("OX2");
-
                         Instant startTime = Instant.now();
 
                         if (test.algorithm().equals("Gen")) {
@@ -151,18 +178,20 @@ public class Main {
 
                         if (result != null) {
                             String formattedTime = String.format("%.3f", secondsElapsed);
-                            writer.println("RESULT: " + result.getSecond() + " (TIME: " + formattedTime + "s)");
+                            writer.println("\nSTATUS: SUCCESS");
+                            writer.println("COST: " + result.getSecond());
+                            writer.println("TIME: " + formattedTime + "s");
+                            writer.println("SOLUTION: " + result.getFirst());
                         } else {
-                            writer.println("\nIt's impossible to execute the algorithm for this configuration.");
+                            writer.println("\nSTATUS: FAILED");
                         }
+
+                    } catch (IOException e) {
+                        System.err.println("Error escribiendo log: " + e.getMessage());
                     }
                 }
             }
-            writer.println("\nEND OF EXECUTIONS.");
-
-        } catch (IOException e) {
-            System.err.println("\nERROR WRITING IN THE FILE " + e.getMessage());
-            e.printStackTrace();
         }
+        System.out.println("\nFIN DE TODAS LAS EJECUCIONES.");
     }
 }
