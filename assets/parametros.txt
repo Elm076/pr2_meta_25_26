@@ -12,3 +12,16 @@ GreedyListSize:5
 %Mutation: 0.1
 NumIterations:50000
 Seconds:60
+
+# --- NUEVA CONFIGURACIÓN DE LA SUITE ---
+# Formato: TestConfig:Algoritmo,Cruce,M,E,kBest,kWorst
+TestConfig:Gen,OX2,100,1,2,3
+TestConfig:Gen,OX2,100,1,3,3
+TestConfig:Gen,OX2,100,2,2,3
+TestConfig:Gen,OX2,100,2,3,3
+TestConfig:Gen,MOC,100,1,2,3
+TestConfig:Gen,MOC,100,1,3,3
+TestConfig:Gen,MOC,100,2,2,3
+TestConfig:Gen,MOC,100,2,3,3
+TestConfig:Est,OX2,100,1,2,2
+TestConfig:Est,MOC,100,1,2,2
