@@ -31,10 +31,10 @@ public class Utilitys {
      * @param data Objeto que contiene las matrices de flujos y distancias
      * @return El coste total como Double
      */
-    public static Double EvaluationFunction(ArrayList<Integer> solution, Data data) {
+    public static Integer EvaluationFunction(ArrayList<Integer> solution, Data data) {
         int n = data.n;
         // Usamos double para ser consistentes con el resto del código (elites, etc.)
-        double cost = 0.0;
+        int cost = 0;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -45,7 +45,7 @@ public class Utilitys {
 
                 // Sumamos el coste: flujo(i,j) * distancia(locI, locJ)
                 // Hacemos cast a double para la multiplicación
-                cost += (double)data.flujos[i][j] * (double)data.distancias[locI][locJ];
+                cost += data.flujos[i][j] * data.distancias[locI][locJ];
             }
         }
 

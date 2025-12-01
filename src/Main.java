@@ -1,4 +1,3 @@
-import algorithms.Stationary;
 import algorithms.generational;
 import config.Data;
 import config.Params;
@@ -20,15 +19,17 @@ public class Main {
     static class TestConfig {
         private final String algorithm;
         private final String crossover;
-        private final int M, E, kBest, kWorst;
+        private final int M, E, kBest, kWorst, EvalutaionsInterval, Depth;
 
-        public TestConfig(String algorithm, String crossover, int M, int E, int kBest, int kWorst) {
+        public TestConfig(String algorithm, String crossover, int M, int E, int kBest, int kWorst, int EvalutaionsInterval, int Depth) {
             this.algorithm = algorithm;
             this.crossover = crossover;
             this.M = M;
             this.E = E;
             this.kBest = kBest;
             this.kWorst = kWorst;
+            this.EvalutaionsInterval = EvalutaionsInterval;
+            this.Depth = Depth;
         }
 
         public String algorithm() { return algorithm; }
@@ -37,16 +38,18 @@ public class Main {
         public int E() { return E; }
         public int kBest() { return kBest; }
         public int kWorst() { return kWorst; }
+        public int EvalutaionsInterval() { return EvalutaionsInterval; }
+        public int Depth() { return Depth; }
 
         @Override
         public String toString() {
-            return String.format("Alg: %s, Cruce: %s, M: %d, E: %d, kBest: %d, kWorst: %d",
-                    algorithm, crossover, M, E, kBest, kWorst);
+            return String.format("Alg: %s, Cruce: %s, M: %d, E: %d, kBest: %d, kWorst: %d, EvalInterval: %d, Depth: %d",
+                    algorithm, crossover, M, E, kBest, kWorst, EvalutaionsInterval, Depth);
         }
 
         public String toFileNamePart() {
-            return String.format("%s_%s_M%d_E%d_kB%d_kW%d",
-                    algorithm, crossover, M, E, kBest, kWorst);
+            return String.format("%s_%s_M%d_E%d_kB%d_kW%d_EI%d_D%d",
+                    algorithm, crossover, M, E, kBest, kWorst, EvalutaionsInterval, Depth);
         }
     }
 
@@ -80,7 +83,9 @@ public class Main {
                                     Integer.parseInt(parts[2].trim()),
                                     Integer.parseInt(parts[3].trim()),
                                     Integer.parseInt(parts[4].trim()),
-                                    Integer.parseInt(parts[5].trim())
+                                    Integer.parseInt(parts[5].trim()),
+                                    Integer.parseInt(parts[6].trim()),
+                                    Integer.parseInt(parts[7].trim())
                             ));
                         }
                     } catch (Exception e) {
@@ -144,10 +149,9 @@ public class Main {
                         writer.println("Configuration: " + test.toString());
                         writer.println("============================================");
 
-                        System.out.println("Ejecutando log: " + logFileName);
+                        System.out.println("Executing log: " + logFileName);
 
-                        PairGeneric<ArrayList<Integer>, Double> result = null;
-                        boolean useOX2 = test.crossover().equals("OX2");
+                        PairGeneric<ArrayList<Integer>, Integer> result = null;
                         Instant startTime = Instant.now();
 
                         if (test.algorithm().equals("Gen")) {
@@ -156,20 +160,11 @@ public class Main {
                                     configuration.getRandomInitPercent(), configuration.getGreedyListSize(),
                                     test.E(), test.kBest(), test.kWorst(),
                                     configuration.getCrossPercent(), configuration.getMutationPercent(),
-                                    configuration.getNumIterations(), configuration.getSecondsExec(), useOX2, configuration.getExtraParam()
+                                    configuration.getNumIterations(), test.EvalutaionsInterval, test.Depth,
+                                    configuration.getSecondsExec(), configuration.getExtraParam()
                             );
                             result = genAlgorithm.run();
 
-                        } else if (test.algorithm().equals("Est")) {
-                            float stationaryCrossProb = 1.0f;
-                            Stationary statAlgorithm = new Stationary(
-                                    dataFile, actualSeed, configuration.getPopSize(),
-                                    configuration.getRandomInitPercent(), configuration.getGreedyListSize(),
-                                    test.E(), test.kBest(), test.kWorst(),
-                                    stationaryCrossProb, configuration.getMutationPercent(),
-                                    configuration.getNumIterations(), configuration.getSecondsExec(), useOX2, configuration.getExtraParam()
-                            );
-                            result = statAlgorithm.run();
                         }
 
                         Instant endTime = Instant.now();

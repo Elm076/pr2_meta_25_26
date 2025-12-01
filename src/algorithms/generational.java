@@ -18,24 +18,27 @@ public class generational {
     private Float percentRandomInit;
     private Integer greedyListSize;
     private Integer nElite;
-    private ArrayList<PairGeneric<ArrayList<Integer>, Double>> elites;
+    private ArrayList<PairGeneric<ArrayList<Integer>, Integer>> elites;
     private Integer kBest;
     private Integer kWorst;
     private Float probCross;
     private Float probMutation;
     private Integer maxIterations;
+    private Integer evaluationsInterval;
+    private Integer depth;
     private Integer maxSeconds;
     private ArrayList<Integer> initCase;
     private Random random;
-    private ArrayList<PairGeneric<ArrayList<Integer>, Double>> prevPopulation;
-    private ArrayList<PairGeneric<ArrayList<Integer>, Double>> actualPopulation;
-    private Boolean useOX2;
+    private Boolean TSactivation;
+    private ArrayList<PairGeneric<ArrayList<Integer>, Integer>> prevPopulation;
+    private ArrayList<PairGeneric<ArrayList<Integer>, Integer>> actualPopulation;
     private Integer numOfEvaluations;
     private Integer extraParam;
 
+    private TabooSearch ts;
+
     public generational(Data data_, Long seed_,Integer popSize_, Float percentRandomInit_, Integer greedSize_, Integer elite_,
-                        Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer maxSeconds_, Boolean OX2_,
-                        Integer extraParam){
+                        Integer kBest_, Integer kWorst_, Float probCross_, Float probMutation_, Integer maxIterations_, Integer evaluationsInterval, Integer depth, Integer maxSeconds_, Integer extraParam){
         data = data_;
         seed = seed_;
         populationSize = popSize_;
@@ -47,17 +50,20 @@ public class generational {
         probCross = probCross_;
         probMutation = probMutation_;
         maxIterations = maxIterations_;
+        this.evaluationsInterval = evaluationsInterval;
+        this.depth = depth;
         maxSeconds = maxSeconds_;
-        useOX2 = OX2_;
         this.extraParam = extraParam;
         random = new Random(seed);
         numOfEvaluations = 0;
-
+        TSactivation = false;
         greedy = new GreedyRandom(seed, greedyListSize, data, extraParam);
 
         prevPopulation = new ArrayList<>();
         actualPopulation = new ArrayList<>();
         elites = new ArrayList<>();
+
+        ts = new TabooSearch(new ArrayList<>(),Integer.MAX_VALUE,seed,data,depth,3);
     }
 
     private void generatePopultaion(){
@@ -66,10 +72,9 @@ public class generational {
         PairGeneric<ArrayList<Integer>, Double> entry = new PairGeneric<>(population,0.0);
         for (int i = 0; i < nElite; i++){
             ArrayList<Integer> emptySolution = new ArrayList<>();
-            PairGeneric<ArrayList<Integer>, Double> e = new PairGeneric<>(emptySolution, Double.POSITIVE_INFINITY);
+            PairGeneric<ArrayList<Integer>, Integer> e = new PairGeneric<>(emptySolution, Integer.MAX_VALUE);
             elites.add(e);
         }
-
 
         for (int i = 0; i < data.n; i++){
             population.add(i);
@@ -78,13 +83,13 @@ public class generational {
         for (int i = 0; i < (populationSize*percentRandomInit); i++){
             ArrayList<Integer> newIndividual = new ArrayList<>(population);
             Collections.shuffle(newIndividual, random);
-            PairGeneric<ArrayList<Integer>, Double> newEntry = new PairGeneric<>(newIndividual, Double.POSITIVE_INFINITY);
+            PairGeneric<ArrayList<Integer>, Integer> newEntry = new PairGeneric<>(newIndividual, Integer.MAX_VALUE);
             prevPopulation.add(newEntry);
         }
 
         for (int i = 0; i < (populationSize * (1-percentRandomInit)); i++){
             ArrayList<Integer> newIndividualGreedy = greedy.execute();
-            PairGeneric<ArrayList<Integer>, Double> newEntryGreedy = new PairGeneric<>(newIndividualGreedy, Double.POSITIVE_INFINITY);
+            PairGeneric<ArrayList<Integer>, Integer> newEntryGreedy = new PairGeneric<>(newIndividualGreedy, Integer.MAX_VALUE);
             prevPopulation.add(newEntryGreedy);
         }
 
@@ -94,7 +99,7 @@ public class generational {
 
         for (int i = 0; i < populationSize; i++){
 
-            Double individualValue = Utilitys.EvaluationFunction(prevPopulation.get(i).getFirst(), data);
+            Integer individualValue = Utilitys.EvaluationFunction(prevPopulation.get(i).getFirst(), data);
             prevPopulation.get(i).setSecond(individualValue);
             for (int j = 0; j < nElite; j++){
                 // If we find a new Elite, we add it and erase the least-Elite from elites
@@ -107,7 +112,7 @@ public class generational {
         }
     }
 
-    int kBestTournament(ArrayList<PairGeneric<Integer, Double>> candidates){
+    int kBestTournament(ArrayList<PairGeneric<Integer, Integer>> candidates){
         double bestCost = Double.POSITIVE_INFINITY;
         int bestIndex = 0;
         for (int i = 0; i < candidates.size(); i++){
@@ -133,55 +138,6 @@ public class generational {
         return worstIndex;
     }
 
-
-    public static PairGeneric<ArrayList<Integer>, ArrayList<Integer>> mocCrossover(
-            ArrayList<Integer> p1, ArrayList<Integer> p2, Random random) {
-
-        int n = p1.size();
-        // Init children with all -1
-        ArrayList<Integer> c1 = new ArrayList<>(Collections.nCopies(n, -1));
-        ArrayList<Integer> c2 = new ArrayList<>(Collections.nCopies(n, -1));
-
-        // set the cross point between 1 and size-1
-        int cp = random.nextInt(n - 1) + 1;
-
-        // Copy the father's right-side into c1 and mother's into c2
-        for (int i = cp; i < n; i++) {
-            c1.set(i, p1.get(i));
-            c2.set(i, p2.get(i));
-        }
-
-        // Fill the "left part" [0...cp-1] of c1 with the elements of p2
-        // in order, skipping the ones that already exist in the copied part of c1
-        int insertPos = 0;
-        for (int i = 0; i < n; i++) {
-            Integer content = p2.get(i);
-            // Si c1 NO contiene el elemento (en la parte derecha) y no hemos llenado la izquierda
-            if (!c1.contains(content)) {
-                c1.set(insertPos, content);
-                insertPos++;
-                if (insertPos == cp) {
-                    break; // Hemos completado hasta cp-1
-                }
-            }
-        }
-
-        // Fill the "left part" [0...cp-1] of c2 with the elements of p1
-        // in order, excluding those already copied to c2
-        insertPos = 0;
-        for (int i = 0; i < n; i++) {
-            Integer content = p1.get(i);
-            if (!c2.contains(content)) {
-                c2.set(insertPos, content);
-                insertPos++;
-                if (insertPos == cp) {
-                    break;
-                }
-            }
-        }
-
-        return new PairGeneric<>(c1, c2);
-    }
 
     public static PairGeneric<ArrayList<Integer>, ArrayList<Integer>> ox2Crossover(
             ArrayList<Integer> p1, ArrayList<Integer> p2, Random random) {
@@ -246,18 +202,18 @@ public class generational {
 
 
     void parentsSelectionAndMutation(){
-        ArrayList<PairGeneric<ArrayList<Integer>, Double>> matingPool = new ArrayList<>();
+        ArrayList<PairGeneric<ArrayList<Integer>, Integer>> matingPool = new ArrayList<>();
         PairGeneric<ArrayList<Integer>,ArrayList<Integer>> childs = new PairGeneric<>();
 
         // We generate the matingPool
         for (int i = 0; i < populationSize; i++){
             //remember im referring the candidates by his index in the ArrayList Population and not copying the individuals into a new object
-            ArrayList<PairGeneric<Integer, Double>> candidates = new ArrayList<>();
+            ArrayList<PairGeneric<Integer, Integer>> candidates = new ArrayList<>();
 
             for (int j = 0; j < kBest; j++){
                 int idx = random.nextInt(0, populationSize);
-                double cost = prevPopulation.get(idx).getSecond();
-                PairGeneric<Integer, Double> candidate =
+                int cost = prevPopulation.get(idx).getSecond();
+                PairGeneric<Integer, Integer> candidate =
                         new PairGeneric<>(idx, cost);
                 candidates.add(candidate);
             }
@@ -269,10 +225,7 @@ public class generational {
         for (int i = 0; i < populationSize/2; i++){
             Boolean crossed = false;
             if (random.nextFloat() <= 0.7) {
-                if (useOX2) {
-                    childs = ox2Crossover(matingPool.get(i).getFirst(), matingPool.get(i+1).getFirst(), random);
-                } else
-                    childs = mocCrossover(matingPool.get(i).getFirst(), matingPool.get(i+1).getFirst(), random);
+                childs = ox2Crossover(matingPool.get(i).getFirst(), matingPool.get(i+1).getFirst(), random);
                 crossed = true;
             }
             else{
@@ -286,20 +239,20 @@ public class generational {
             //Apply mutation 2opt if probabilities success
             if (random.nextFloat() <= 0.1) {
                 mutation = Utilitys.TwoOpt(childs.getFirst(), random.nextInt(0, data.n), random.nextInt(0, data.n));
-                actualPopulation.add(new PairGeneric<>(mutation, 0.0));
+                actualPopulation.add(new PairGeneric<>(mutation, 0));
                 mutationChild1 = true;
             }
             else{
-                actualPopulation.add(new PairGeneric<>(childs.getFirst(), 0.0));
+                actualPopulation.add(new PairGeneric<>(childs.getFirst(), 0));
             }
 
             if (random.nextFloat() <= 0.1) {
                 mutation = Utilitys.TwoOpt(childs.getSecond(), random.nextInt(0, data.n), random.nextInt(0, data.n));
-                actualPopulation.add(new PairGeneric<>(mutation, 0.0));
+                actualPopulation.add(new PairGeneric<>(mutation, 0));
                 mutationChild2 = true;
             }
             else{
-                actualPopulation.add(new PairGeneric<>(childs.getSecond(), 0.0));
+                actualPopulation.add(new PairGeneric<>(childs.getSecond(), 0));
             }
 
             /*We update the number of evaluations made
@@ -314,11 +267,21 @@ public class generational {
                 if (mutationChild2)
                     numOfEvaluations++;
             }
+
+            if (numOfEvaluations % evaluationsInterval <= 1){
+                TSactivation = true;
+            }
         }
 
         prevPopulation = actualPopulation;
         actualPopulation = new ArrayList<>();
         evaluatePopulation();
+
+        if (TSactivation){
+            ts.setElite(elites.getFirst().getFirst(), elites.getFirst().getSecond());
+            elites.set(0,ts.run()); //Substitute the best elite with the result of the TS
+            TSactivation = false;
+        }
 
         // We need to ensure that the elites survives into the new generation
         for (int i = 0; i < nElite; i++){
@@ -342,7 +305,7 @@ public class generational {
     }
 
 
-    public PairGeneric<ArrayList<Integer>, Double> run(){
+    public PairGeneric<ArrayList<Integer>, Integer> run(){
         Instant initTime = Instant.now();
         Instant checkTime = Instant.now();
         Duration time = Duration.between(initTime,checkTime);
