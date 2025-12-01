@@ -61,30 +61,30 @@ public class generational {
     }
 
     private void generatePopultaion(){
-        ArrayList<Integer> cities = new ArrayList<>(); // Ahora representa localizaciones
+        ArrayList<Integer> population = new ArrayList<>(); // Ahora representa localizaciones
         //Initialize to "empty" values the elites
-        PairGeneric<ArrayList<Integer>, Double> entry = new PairGeneric<>(cities,0.0);
+        PairGeneric<ArrayList<Integer>, Double> entry = new PairGeneric<>(population,0.0);
         for (int i = 0; i < nElite; i++){
-            ArrayList<Integer> emptyPath = new ArrayList<>();
-            PairGeneric<ArrayList<Integer>, Double> e = new PairGeneric<>(emptyPath, Double.POSITIVE_INFINITY);
+            ArrayList<Integer> emptySolution = new ArrayList<>();
+            PairGeneric<ArrayList<Integer>, Double> e = new PairGeneric<>(emptySolution, Double.POSITIVE_INFINITY);
             elites.add(e);
         }
 
 
         for (int i = 0; i < data.n; i++){
-            cities.add(i);
+            population.add(i);
         }
 
         for (int i = 0; i < (populationSize*percentRandomInit); i++){
-            ArrayList<Integer> newCities = new ArrayList<>(cities);
-            Collections.shuffle(newCities, random);
-            PairGeneric<ArrayList<Integer>, Double> newEntry = new PairGeneric<>(newCities, Double.POSITIVE_INFINITY);
+            ArrayList<Integer> newIndividual = new ArrayList<>(population);
+            Collections.shuffle(newIndividual, random);
+            PairGeneric<ArrayList<Integer>, Double> newEntry = new PairGeneric<>(newIndividual, Double.POSITIVE_INFINITY);
             prevPopulation.add(newEntry);
         }
 
         for (int i = 0; i < (populationSize * (1-percentRandomInit)); i++){
-            ArrayList<Integer> newCitiesGreedy = greedy.execute();
-            PairGeneric<ArrayList<Integer>, Double> newEntryGreedy = new PairGeneric<>(newCitiesGreedy, Double.POSITIVE_INFINITY);
+            ArrayList<Integer> newIndividualGreedy = greedy.execute();
+            PairGeneric<ArrayList<Integer>, Double> newEntryGreedy = new PairGeneric<>(newIndividualGreedy, Double.POSITIVE_INFINITY);
             prevPopulation.add(newEntryGreedy);
         }
 
@@ -107,7 +107,6 @@ public class generational {
         }
     }
 
-    // ... (kBestTournament y kWorstTournament quedan igual) ...
     int kBestTournament(ArrayList<PairGeneric<Integer, Double>> candidates){
         double bestCost = Double.POSITIVE_INFINITY;
         int bestIndex = 0;
@@ -156,10 +155,10 @@ public class generational {
         // in order, skipping the ones that already exist in the copied part of c1
         int insertPos = 0;
         for (int i = 0; i < n; i++) {
-            Integer city = p2.get(i);
-            // Si c1 NO contiene city (en la parte derecha) y no hemos llenado la izquierda
-            if (!c1.contains(city)) {
-                c1.set(insertPos, city);
+            Integer content = p2.get(i);
+            // Si c1 NO contiene el elemento (en la parte derecha) y no hemos llenado la izquierda
+            if (!c1.contains(content)) {
+                c1.set(insertPos, content);
                 insertPos++;
                 if (insertPos == cp) {
                     break; // Hemos completado hasta cp-1
@@ -171,9 +170,9 @@ public class generational {
         // in order, excluding those already copied to c2
         insertPos = 0;
         for (int i = 0; i < n; i++) {
-            Integer city = p1.get(i);
-            if (!c2.contains(city)) {
-                c2.set(insertPos, city);
+            Integer content = p1.get(i);
+            if (!c2.contains(content)) {
+                c2.set(insertPos, content);
                 insertPos++;
                 if (insertPos == cp) {
                     break;
