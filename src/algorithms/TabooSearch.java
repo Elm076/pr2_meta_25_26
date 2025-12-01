@@ -76,17 +76,8 @@ public class TabooSearch {
                     }
 
                     boolean isTabu = STM.find(i, j);
-
-                    // Aspiration Criterion: if it improves the global solution, we ignore if it's tabu
-                    if (neighborValue < globalSolutionValue){
-                        if (neighborValue < bestNeighborValue) {
-                            bestNeighborValue = neighborValue;
-                            best_i = i;
-                            best_j = j;
-                        }
-                    }
                     // If it's not tabu, we consider it as a candidate for the best neighbor
-                    else if (!isTabu) {
+                     if (!isTabu) {
                         if (neighborValue < bestNeighborValue) {
                             bestNeighborValue = neighborValue;
                             best_i = i;
