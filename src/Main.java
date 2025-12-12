@@ -173,6 +173,8 @@ public class Main {
 
                         if (result != null) {
                             String formattedTime = String.format("%.3f", secondsElapsed);
+                            System.out.println("TIME: " + formattedTime + "s");
+                            System.out.println();
                             writer.println("\nSTATUS: SUCCESS");
                             writer.println("COST: " + result.getSecond());
                             writer.println("TIME: " + formattedTime + "s");

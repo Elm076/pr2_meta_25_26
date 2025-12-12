@@ -320,6 +320,9 @@ public class generational {
             checkTime = Instant.now();
             time = Duration.between(initTime,checkTime);
         }
+        //we ensure that the best elite is optimized with TS at the end of the GA because it could have not been optimized if TSactivation was false
+        ts.setElite(elites.getFirst().getFirst(), elites.getFirst().getSecond());
+        elites.set(0,ts.run()); //Substitute the best elite with the result of the TS
         evaluatePopulation();
 
         System.out.println("Value of solution = " + elites.getFirst().getSecond());
